@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+	<head>
+		<title>Search Course</title>
+	</head>
+	
+	<body>
+		<div th:fragment="content" class="col-md-8 col-md-offset-2">
+	
+			<div>
+				<h3>Search Course</h3>
+				<hr></hr>
+			
+				<form action="/sekre/search/course/result" method="post">
+					<ul class="list-group">
+					  <li class="list-group-item"><label for="name">Course Name</label> <input type="text" name="name"/></li>
+					  <li class="list-group-item"><label for="sks">SKS</label> <input type="text" name = "sks"/></li>
+					  <li class="list-group-item"><label for="sksRequired">SKS Required</label> <input type="text" name="sksRequired"/></li>
+					</ul>		
+		
+					<div>
+							<button type="submit" name="action" value="save">Search</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

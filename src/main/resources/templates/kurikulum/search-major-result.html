@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+	<title>Search University Result</title>
+</head>
+
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+	
+	<div>
+		<h2 class="text-center">Majors List</h2>
+		<br> </br>	
+		<table id="datatable" class="table display">
+			<thead>
+				<tr>
+				<th>ID</th>
+				<th>Major Name</th>
+				<th>Option</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div th:each="major,iterationStatus: ${majors}">
+					<tr>
+						<td>
+							<p th:text="${major.idMajor}"></p>
+						</td>
+						<td>
+							<p th:text="${major.majorName}"></p>
+						</td>
+						<td>
+							 <a th:href="'/sekre/major/view/'+${major.idMajor}"><button type="button" class="btn btn-primary">See Details</button> </a>	
+						</td>
+					</tr>
+				</div>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</body>
+</html>

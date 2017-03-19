@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:include="master :: master">
+
+<head>
+<title>Add University</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+		<div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+
+				<h1 class="page-header">Add University</h1>
+				<form action="/sekre/univ/add/submit" method="post"
+					th:object="${University}">
+					<div class="form-group">
+						<label for="univName">University
+							Name:</label>
+						<div>
+							<input type="text" name="univName"
+								th:placeholder="'University Name'" />
+						</div>
+					</div>
+					<div class="form-group">
+							<label for="initial">University
+							Initial:</label>
+						<div >
+						<input type="text" name="initial"
+							th:placeholder="'University Initial (max. 4 chars)'"
+							th:maxlength="3" />
+					</div>
+					</div>
+					<div class="form-group">
+							<label  for="accreditation">University Accreditation:</label>
+						<div >
+						<select
+							name="accreditation"
+							class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<option th:value="'A'" th:text="'A'"></option>
+							<option th:value="'B'" th:text="'B'"></option>
+							<option th:value="'C'" th:text="'C'"></option>
+						</select>
+					</div></div>
+					<div class="form-group">
+						<label for="telephoneNumber">Telephone Number:</label>
+						<div >
+						<input type="number" name="telephoneNumber"
+							th:placeholder="'Telephone Number'" th:maxlength="13" />
+					</div></div>
+					<div class="form-group">
+						<label for="address">Address:</label>
+						<div>
+						<input type="text" name="address" th:placeholder="'Address'" />
+					</div></div>
+
+					<div class="form-group">
+						<div >
+						<button type="submit" name="action" value="save">Add
+							University</button>
+					</div></div>
+				</form>
+
+
+			</div>
+
+			<div class="col-sm-4"></div>
+
+
+
+		</div>
+	</div>
+</body>
+</html>

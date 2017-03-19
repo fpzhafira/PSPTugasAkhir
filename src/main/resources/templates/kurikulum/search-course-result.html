@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+	<title>Search Course Result</title>
+</head>
+
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+	
+	<div>
+		<h2 class="text-center">Course List</h2>
+		<br> </br>	
+		<table id="datatable" class="table display">
+			<thead>
+				<tr>
+					<th>ID Course</th>
+					<th>Course Name</th>
+					<th>SKS</th>
+					<th>SKS Required</th>
+					<th>Detail</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div th:each="result,iterationStatus: ${results}">
+					<tr>
+						<td>
+							<p th:text="${result.idCourse}"></p>
+						</td>
+						<td>
+							<p th:text="${result.courseName}"></p>
+						</td>
+						<td>
+							<p th:text="${result.sks}"></p>
+						</td>
+						<td>
+							<p th:text="${result.sksRequired}"></p>
+						</td>
+						<td>
+							 <a th:href="'/sekre/course/view/'+${result.idCourse}"><button type="button" class="btn btn-primary">See Details</button> </a>	
+						</td>
+					</tr>
+				</div>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</body>
+</html>

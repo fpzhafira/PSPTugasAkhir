@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+<title>View University</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+	
+	<div>
+		<div class="col-sm-4">
+			<h3 th:text="${univ.idUniv} + ' - ' + ${univ.univName} + ' ' + ${disable}"></h3>
+			<h3 th:text="'Akreditasi: ' + ${univ.accreditation}"></h3>
+			<h4 th:text = "${univ.address} + ' - ' + ${univ.telephoneNumber}"> </h4>
+		</div>
+		<div class="col-sm-6"></div>
+		<div class="col-sm-2">
+			<a class="text-warning" th:href="'/sekre/univ/active/' + ${univ.idUniv}"><button
+					type="button" class="btn btn-warning">Aktifkan Univ</button> </a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

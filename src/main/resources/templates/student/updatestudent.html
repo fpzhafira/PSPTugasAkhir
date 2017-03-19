@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:include="master :: master">
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+	<!-- Content goes below here -->
+
+		<div class="page-header">
+			<h1>Update Data Mahasiswa</h1>
+		</div>
+	
+		<!-- The rest of the content belong below here -->
+	    <!--  -->
+		<form action="/sekre/student/updateStudent" th:object="${student}" method="POST" id="update-student">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+	              	<h2>Update Data</h2>
+	              
+	   				<input type="hidden" name="npm" th:value="${studentParam.npm}" />
+	               	<label for="pa-select">Pembimbing Akademis</label>
+	               	<select name="nip" id="pa-select" class="form-control">
+	                	<option value="" selected="selected" disabled="disabled">Pilih Pembimbing Akademis</option>
+	                   	<option value=""></option>
+	               	</select><br/> 
+	           
+	               	<label for="kurikulum-select">Kurikulum</label> 
+	               	<select  name="curriculumId" id="kurikulum-select" class="form-control">
+	                   	<option value="" selected="selected" disabled="disabled">Pilih Kurikulum</option>
+	                   	<option th:each="cur, iterationStatus: ${curriculums}" th:selected="${(cur.idCurriculum.equals(studentParam.curriculumId))}" th:value="${cur.idCurriculum}" th:text="${cur.idCurriculum}"></option>
+	               	</select><br/>
+	
+	               	<button class="btn btn-primary pull-right">Save</button><br/>
+	
+	               	<!-- <h2>Delete Mahasiswa</h2>
+	               	<button class="btn btn-danger pull-left">Delete</button> -->
+	           	</div>
+	       	</div>
+	   	</form>
+	   	
+	   	<form action="/sekre/student/deleteStudent" method="POST">
+	   		<input type="hidden" name="npm" th:value="${studentParam.npm}" />
+	   		<button type="submit" class="btn btn-danger pull-left">Hapus Mahasiswa</button>
+	   	</form>
+		
+		<!-- end of content -->
+		<script th:inline="javascript">
+			var supervisorNip = [[${(supervisor!=null) ? supervisor.nip : null}]];
+		</script>
+		<script src="/js/student/updatestudent.js" defer="defer"></script>
+	</div>
+</html>

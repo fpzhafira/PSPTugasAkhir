@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+	<title>Add Course</title>
+</head>
+
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+		<div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+				<h1 class="page-header">Add Course</h1>
+				<form action="/sekre/course/add/submit" method="post" th:object="${course}">
+					<div>
+						<label for="idCurriculum">Curriculum ID</label>
+						<input type="text" name="idCurriculum" readonly = "true" th:field="${curriculum.idCurriculum}" />
+					</div>	
+<!-- 					<div> -->
+<!-- 						<label for="year">Curriculum ID</label> -->
+<!-- 						<input type="text" name="year" readonly = "true" th:field="{curriculum.year}" /> -->
+<!-- 					</div>		 -->
+					<div class="form-group blu-margin">
+						<label>Pick Course</label><br></br> 
+							<select name="idCourse" class="btn w3-btn w3-hover-red dropdown-toggle" type="button" data-toggle="dropdown">
+								<option th:each="course : ${courses}" th:value="${course.idCourse}" th:text="${course.courseName}"></option>
+							</select>
+					</div>
+					<div>
+						<label>Pick Obligation</label><br></br> 
+							<select name="obligatory" class="btn w3-btn w3-hover-red dropdown-toggle" type="button" data-toggle="dropdown">
+								<option th:value="'1000'" th:text="'University'"></option>
+								<option th:value="'0100'" th:text="'Group'"></option>
+								<option th:value="'0010'" th:text="'Faculty'"></option>
+								<option th:value="'0001'" th:text="'Major'"></option>
+							</select>
+					</div>
+					<div>
+						<button type="submit" name="action" value="save">Add Course</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

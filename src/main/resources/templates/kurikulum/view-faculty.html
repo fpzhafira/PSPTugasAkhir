@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+<title>View Faculty</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+	
+	<div>
+		<div class="col-sm-4">
+			<h3 th:text="${faculty.facultyName} + ' - ' + ${univ.univName}"></h3>
+			<h3 th:text="'Group: ' + ${group.groupName}" ></h3>
+			<h3 th:text="'Akreditasi: ' + ${faculty.accreditation}"></h3>
+			<h4 th:text = "'Telephone Number: ' + ${faculty.telephoneNumber}"> </h4>
+		</div>
+		<div class="col-sm-6"></div>
+		<div class="col-sm-2">
+			<a class="text-warning" th:href="'/sekre/faculty/update/' + ${faculty.idFaculty}"><button
+					type="button" class="btn btn-warning">Update Faculty</button> </a>
+					<br></br>
+			<a class="text-warning" th:href="'/sekre/major/add/' + ${faculty.idFaculty}"><button
+					type="button" class="btn btn-warning">Add Major</button> </a>
+			<br></br>
+			<a class="text-alert" th:href="'/sekre/faculty/delete/' + ${faculty.idFaculty}"><button
+					type="button" class="btn btn-danger">Delete Faculty</button> </a>
+					
+		</div>
+	</div>
+	<div>
+		<h2 class="text-center">Majors List</h2>
+		<br> </br>	
+		<table id="datatable" class="table display">
+			<thead>
+				<tr>
+				<th>ID</th>
+				<th>Major Name</th>
+				<th>Option</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div th:each="major,iterationStatus: ${faculty.majors}">
+					<tr>
+						<td>
+							<p th:text="${major.idMajor}"></p>
+						</td>
+						<td>
+							<p th:text="${major.majorName}"></p>
+						</td>
+						<td>
+							 <a th:href="'/sekre/major/view/'+${major.idMajor}"><button type="button" class="btn btn-primary">See Details</button> </a>	
+						</td>
+					</tr>
+				</div>
+
+
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

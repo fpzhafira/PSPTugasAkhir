@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+<title>Add Term</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+		<div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+
+				<h1 class="page-header">Add Term</h1>
+				<form action="/sekre/term/add/submit" method="post" th:object="${term}">
+					
+					<div>
+						<label for="years"> Years of Term </label>
+						<input type="text" name="years" th:placeholder="'Years'" />
+					</div>
+					<div>
+						<label for="idFaculty"> Term Held </label>
+						
+						<label> Pick Groups </label><br></br> <select name="termHeld"
+							class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<option th:value="'1'"	th:text="'Odd Term'"></option>
+							<option th:value="'2'"	th:text="'Even Term'"></option>
+							<option th:value="'3'"	th:text="'Summer Term'"></option>
+						</select>
+						
+					</div>		
+					<div>
+						<button type="submit" name="action" value="save">Add Term</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

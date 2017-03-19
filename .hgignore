@@ -1,0 +1,11 @@
+syntax: glob
+target
+.settings
+*.swp
+*.orig
+*.zip
+*.jar
+*.jpg
+*.bak
+*.log
+*.class

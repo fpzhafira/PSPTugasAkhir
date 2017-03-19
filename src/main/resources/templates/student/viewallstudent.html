@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:include="master :: master">
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+		<!-- Content goes below here -->
+	
+		<div class="page-header">
+			<h1>Daftar Mahasiswa</h1>
+		</div>
+		
+		<!-- The rest of the content belong below here -->
+		<form class="form-inline">
+			<select id="univ-select" class="form-control" name="univ-select" required="required">
+				<option value="" disabled="disabled" selected="selected">Pilih Universitas</option>
+				<option th:each="univ, iterationStatus: ${universities}" th:value="${univ.idUniv}" th:text="${univ.univName}"></option>
+			</select>
+			<select id="fakultas-select" class="form-control" name="fakultas-select" required="required">
+				<option value="" disabled="disabled" selected="selected">Pilih Fakultas</option>
+			</select>
+			<select id="prodi-select" class="form-control" name="prodi-select" required="required">
+				<option value="" disabled="disabled" selected="selected">Pilih Program Studi</option>
+			</select>
+			<a id="tampilkan-btn" class="btn btn-primary pull-right">Tampilkan Mahasiswa</a>
+		</form>
+		<hr />
+		<div class="text-center text-bold">
+			<span>Menampilkan Semua Mahasiswa dari</span><br />
+			<span id="selected-univ-text"></span><br />
+			<span id="selected-faculty-text"></span><br />
+			<span id="selected-major-text"></span>
+		</div><br />
+		<table id="view-all-student" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>NPM</th>
+					<th>Nama</th>					
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>	
+		
+		<script src="/js/student/viewallstudent.js" defer="defer"></script>
+	</div>
+</html>

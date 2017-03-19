@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+	<title>View Course</title>
+</head>
+
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+	<div>
+		<div class="col-sm-4">
+			
+			<h3 th:text="${course.idCourse} + ' - ' + ${course.courseName}"></h3>
+			<h4 th:text="'Jumlah SKS: ' + ${course.sks}"></h4>
+		</div>
+		<div class="col-sm-6"></div>
+		<div class="col-sm-2">
+			<a class="text-warning" th:href="'/sekre/course/addPreconditions/'+${course.idCourse}">
+				<button type="button" class="btn btn-warning">Add Precondition</button>
+			</a>
+			
+			<br></br>
+
+			<a class="text-warning" th:href="'/sekre/course/update/' + ${course.idCourse}">
+				<button type="button" class="btn btn-warning">Update Course</button>
+			</a>			
+		
+			<br></br>
+			
+			<a class="text-alert" th:href="'/sekre/course/delete/' + ${course.idCourse}">
+				<button type="button" class="btn btn-danger">Delete Course</button>
+			</a>		
+		</div>
+	</div>
+	
+	<div>
+		<h2 class="text-center">List of Preconditions</h2>
+		<br> </br>	
+		<table id="datatable" class="table display">
+			<thead>
+				<tr>
+					<th>ID Course</th>
+					<th>Course Name</th>
+					<th>SKS</th>
+					<th>Obligatory</th>
+					<th>Detail</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div th:each="precondition,iterationStatus: ${course.precondition}">
+					<tr>
+						<td>
+							<p th:text="${precondition.idCourse}"></p>
+						</td>
+						<td>
+							<p th:text="${precondition.courseName}"></p>
+						</td>
+						<td>
+							<p th:text="${precondition.sks}"></p>
+						</td>
+						<td>
+							<p th:text="${course.sksRequired}"></p>
+						</td>
+						<td>
+							 <a th:href="'/sekre/course/view/'+${precondition.idCourse}"><button type="button" class="btn btn-primary">See Details</button> </a>	
+						</td>
+						<td>
+							 <a th:href="'/sekre/course/deletePreconditions/' + ${course.idCourse} + '/' + ${precondition.idCourse}"><button type="button" class="btn btn-primary">Delete</button> </a>	
+						</td>
+					</tr>
+				</div>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</body>
+</html>

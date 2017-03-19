@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:include="master :: master">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Tugas Akhir EAAP - A - Kelompok 3</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/datatables.min.css" />
+<link rel="stylesheet" href="/css/style.css" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="datatables.min.js" defer="defer"></script>
+</head>
+<body>
+	<!--  <nav class="navbar navbar-inverse">
+        <div class="container-fluid">            
+            <div class="row">
+            	<a class="text-white" href="#">
+					<div class="col-md-8 col-md-offset-2">
+					    <div class="row padding-12-0">                        
+							<div class="col-md-1">
+							    <img class="logo-ui inline-block" src="/img/logo-ui.png" alt="SIAK-NG"> </img>                      
+							</div>
+							<div class="col-md-11">                            
+							    <span class="font-24">SIAK-NG UI</span><br></br>
+							    <span>Sistem Informasi Akademik Next Generation</span><br></br>
+							    <span class="text-yellow">Universitas Indonesia</span>                                                                
+							</div>                                               
+					    </div>    
+					</div>
+                </a>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 padding-top-8 color-secondary">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active"><a href="#">Ringkasan <span class="sr-only">(current)</span></a></li>                                
+                                <li><a href="#">Isi IRS</a></li>
+                                <li></li>
+                                <li><a href="#">Kalender Akademik</a></li>
+                                <li></li>
+                                <li><a href="#">Jadwal Kuliah</a></li>
+                                <li></li>
+                                <li><a href="#">Profil</a></li>
+                            </ul>                                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+		<div class="row" align="center">
+
+			<h1 class="page-header">Add Class</h1>
+
+			<form action="/sekre/classes/add/submit" method="get">
+				<div class="form-group">
+					<label for="class_id">Class ID:</label> <input type="text"
+						name="class_id" />
+				</div>
+				<div class="form-group">
+					<label for="major_id">Major ID:</label> <input type="text"
+						name="major_id" />
+				</div>
+				<div class="form-group">
+					<label for="course_id">Course ID:</label> <input type="text"
+						name="course_id" />
+
+					<!--<label> Course Name: </label><br></br> <select id="course_id"
+						name="course_id" class="btn w3-btn w3-hover-red dropdown-toggle"
+						type="button" data-toggle="dropdown">
+						<option th:each="courses: ${courses}"
+							th:value="${courses.idCourse}" th:text="${courses.courseName}"></option>
+					</select>-->
+				</div>
+				<!-- <div class="form-group">
+			<label for="course_name">Course Name:</label> <input type="text" name="course_name" />
+		</div>  -->
+				<div class="form-group">
+					<label for="class_name">Class Name:</label> <input type="text"
+						name="class_name" />
+				</div>
+				<div class="form-group">
+					<label for="schedule">Schedule:</label> <input type="text"
+						name="schedule" />
+				</div>
+				<div class="form-group">
+					<label for="classroom">Classroom:</label> <input type="text"
+						name="classroom" />
+				</div>
+				<div class="form-group">
+					<!--  <label for="lecturer">Lecturer:</label> <input type="text" name="lecturer" /> -->
+					<label> Select Lecturer 1: </label><br></br> <select id="lecturer"
+						name="lecturer" class="btn w3-btn w3-hover-red dropdown-toggle"
+						type="button" data-toggle="dropdown">
+						<option th:each="lecturers: ${lecturers}"
+							th:value="${lecturers.nama}" th:text="${lecturers.nama}"></option>
+					</select>
+				</div>
+				<div class="form-group">
+					<!-- <label for="id_term">Term ID:</label> <input type="text"
+						name="id_term" /> -->
+
+					<label> Term: </label><br></br> <select id="id_term" name="id_term"
+						class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+						data-toggle="dropdown">
+						<option th:each="terms: ${terms}" th:value="${terms.idTerm}"
+							th:text="${terms.years} + ' - ' + ${terms.termHeld}"></option>
+					</select>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary" type="submit" name="action" value="save">Save</button>
+					<a th:href="'/sekre/classes/viewAllClass'"><button
+							type="button" class="btn btn-primary">Cancel</button> </a>
+				</div>
+			
+			</form>
+
+		</div>
+	</div>
+</body>
+</html>

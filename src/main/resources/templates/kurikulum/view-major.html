@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+	
+<head>
+	<title>View Major</title>
+</head>
+
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+	<div>
+		<div class="col-sm-4">
+			<h3 th:text="${major.idMajor} + ' - ' + ${major.majorName}"></h3>
+		</div>
+		<div class="col-sm-6"></div>
+		<div class="col-sm-2">
+			<a class="text-warning" th:href="'/sekre/curriculum/add/' + ${major.idMajor}">
+				<button type="button" class="btn btn-warning">Add Curriculum</button>
+			</a>
+			
+			<br></br>
+
+			<a class="text-warning" th:href="'/sekre/major/update/' + ${major.idMajor}">
+				<button type="button" class="btn btn-warning">Update Major</button>
+			</a>			
+		
+			<br></br>
+			
+			<a class="text-alert" th:href="'/sekre/major/delete/' + ${major.idMajor}">
+				<button type="button" class="btn btn-danger">Delete Major</button>
+			</a>		
+		</div>
+	</div>
+	
+	<div>
+		<h2 class="text-center">List of Curriculums</h2>
+		<br> </br>	
+		<table id="datatable" class="table display">
+			<thead>
+				<tr>
+				<th>ID Curriculum</th>
+				<th>Year</th>
+				<th>Detail</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div th:each="curriculum,iterationStatus: ${curriculums}">
+					<tr>
+						<td>
+							<p th:text="${curriculum.idCurriculum}"></p>
+						</td>
+						<td>
+							<p th:text="${curriculum.year}"></p>
+						</td>
+						<td>
+							 <a th:href="'/sekre/curriculum/view/'+${curriculum.idCurriculum}"><button type="button" class="btn btn-primary">See Details</button> </a>	
+						</td>
+					</tr>
+				</div>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</body>
+</html>

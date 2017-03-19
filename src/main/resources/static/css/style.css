@@ -1,0 +1,107 @@
+.text-bold { font-weight: bold; }
+
+.padding-12-0 { padding: 12px 0; }
+
+.padding-top-8 { padding-top: 8px; }
+
+.font-24 { font-size: 24px; }
+
+.text-yellow { color: #FED900 !important;}
+
+.text-white { color: #FFF !important; }
+
+.text-primary { color: #F1C232 !important; }
+
+.text-secondary { color: #FFE559 !important; }
+
+.color-primary { background-color: #F1C232 !important; }
+
+.color-secondary { background-color: #FFE559 !important; }
+
+.color-yellow { background-color: #FED900;}
+
+.inline-block { display: inline-block; }
+
+.navbar
+{
+	border-radius: 0 !important;
+    border-bottom: 8px solid #F1C232 !important;
+}
+
+.navbar-inverse .navbar-brand:focus, 
+.navbar-inverse .navbar-brand:hover
+{
+	color: #000 !important;
+}
+
+.navbar-inverse .navbar-brand
+{
+	color: #000 !important;
+	font-size: 1.2em;
+}
+
+.navbar-inverse .navbar-nav>.active>a, 
+.navbar-inverse .navbar-nav>.active>a:focus, 
+.navbar-inverse .navbar-nav>.active>a:hover
+{
+    color: #000 !important;
+    background-color: #F1C232 !important;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, 
+.navbar-inverse .navbar-nav>li>a:hover
+{
+    background-color: #F1C232 !important;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.navbar-inverse .navbar-nav>li
+{
+    margin-right: 4px;
+}
+
+.navbar-inverse .navbar-nav>li>a
+{
+    color: #000 !important;
+    font-weight: bold !important;    
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, 
+.navbar-inverse .navbar-nav>li>a:hover
+{
+    font-weight: bold !important;
+}
+
+.navbar-inverse .navbar-nav>.open>a, 
+.navbar-inverse .navbar-nav>.open>a:focus, 
+.navbar-inverse .navbar-nav>.open>a:hover
+{
+	background-color: #F1C232 !important;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+footer
+{
+    padding: 4px 0;
+    margin-top: 24px;
+    background-color: #333;
+}
+
+.body-content
+{
+	padding-bottom: 48px;	
+}
+
+.full-width
+{
+	width: 100%;
+}
+
+.logo-ui
+{
+    width: 64px;    
+}

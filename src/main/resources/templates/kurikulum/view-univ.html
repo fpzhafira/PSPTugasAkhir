@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+<title>View University</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+	
+	<div>
+		<div class="col-sm-4">
+			<h3 th:text="${univ.idUniv} + ' - ' + ${univ.univName}"></h3>
+			<h3 th:text="'Akreditasi: ' + ${univ.accreditation}"></h3>
+			<h4 th:text = "${univ.address} + ' - ' + ${univ.telephoneNumber}"> </h4>
+		</div>
+		<div class="col-sm-6"></div>
+		<div class="col-sm-2">
+			<a class="text-warning" th:href="'/sekre/univ/update/' + ${univ.idUniv}"><button
+					type="button" class="btn btn-warning">Update Univ</button> </a>
+					<br></br>
+			<a class="text-warning" th:href="'/sekre/faculty/add/'+${univ.idUniv}"><button
+					type="button" class="btn btn-warning">Add Faculty</button> </a>
+			<br></br>
+			<a class="text-alert" th:href="'/sekre/univ/delete/' + ${univ.idUniv}"><button
+					type="button" class="btn btn-danger">Delete Univ</button> </a>
+					
+		</div>
+	</div>
+	<div>
+		<h2 class="text-center">Faculties List</h2>
+		<br> </br>	
+		<table id="datatable" class="table display">
+			<thead>
+				<tr>
+				<th>ID</th>
+				<!-- might put group in here -->
+				<th>Faculty Name</th>
+				<th>Option</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div th:each="faculties, iterationStatus: ${univ.faculties}">
+					<tr>
+						<td>
+							<p th:text="${faculties.idFaculty}"></p>
+						</td>
+						<td>
+							<p th:text="${faculties.facultyName}"></p>
+						</td>
+						<td>
+							 <a th:href="'/sekre/faculty/view/'+${faculties.idFaculty}"><button type="button" class="btn btn-primary">See Details</button> </a>	
+						</td>
+					</tr>
+				</div>
+
+
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

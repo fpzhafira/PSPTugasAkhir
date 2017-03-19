@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+		<!-- Content goes below here -->
+		
+		<div class="page-header">
+            <h1>Beranda</h1>
+        </div>
+        
+        <!-- The rest of the content belong below here -->
+        <div class="panel panel-default">
+        	<div class="panel-body text-center">
+        		<div class="alert alert-info" role="alert">
+        			<span th:inline="text">Login dengan user [[${#httpServletRequest.remoteUser}]] sebagai</span>
+        			<span th:text="${#httpServletRequest.getUserPrincipal()}"></span>
+        			<br /><br />
+        			<span sec:authentication="name"></span><br />
+        			<span sec:authorize="isAuthenticated()">isAuthenticated()</span><br />
+        			<span sec:authorize="hasAuthority('student')">I'm a student</span><br />
+        			<span sec:authorize="hasAuthority('sekre')">I'm a sekre</span><br />        			
+        			<span th:text="${(#authentication.principal.authorities[0].toString().equals('student')) ? 'student - ini ternary operation' : 'sekre - ini ternary operation'}"></span>              			    		
+        		</div>
+        		Silakan akses menu-menu diatas
+        		
+        		<form th:action="@{/logout}" method="POST">
+        			<input type="submit" value="Log out"/>
+        		</form>
+        	</div>
+        </div>
+		<!-- end of content -->
+	</div>
+</html>

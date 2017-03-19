@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+<title>View Group</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+		<div>
+			<div class="col-sm-4">
+				<h3 th:text="${group.idGroup} + ' - ' + ${group.groupName} + '(Tidak Aktif)'"></h3>
+				<h3 th:text="'University: ' + ${univ.univName}"></h3>
+			</div>
+			<div class="col-sm-6"></div>
+			<div class="col-sm-2">
+				<a class="text-warning" th:href="'/sekre/group/active/' + ${group.idGroup}"><button
+					type="button" class="btn btn-warning">Aktifkan Rumpun</button> </a>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

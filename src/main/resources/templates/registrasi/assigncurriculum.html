@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+		<!-- Content goes below here -->
+		
+		<div class="page-header">
+            <h1>Assign Kurikulum</h1>
+        </div>
+
+        <form th:action="@{/sekre/assignCurriculumToStudents}" th:object="${student}" method="POST" id="assign-curriculum">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <label for="univ-select">Universitas</label>
+                    <select name="univ-select" id="univ-select" class="form-control">
+                     	<option value="" selected="selected" disabled="disabled">Pilih Universitas</option>
+                        <option  th:each="univ, iterationStatus: ${universities}" th:text="${univ.univName}" th:value="${univ.idUniv}"></option>
+                    </select><br/>
+                    
+                    <label for="fakultas-select">Fakultas</label>
+                    <select name="fakultas-select" id="fakultas-select" class="form-control">
+                    	<option value="" selected="selected" disabled="disabled">Pilih Fakultas</option>                        
+                    </select><br/>
+
+                    <label for="prodi-select">Prodi</label>
+                    <select name="prodi-select" id="prodi-select" class="form-control">
+                    	<option value="" selected="selected" disabled="disabled">Pilih Program Studi</option>                        
+                    </select><br/>
+
+                    <label for="kurikulum-select">Kurikulum</label>
+                    <select name="kurikulum-select" id="kurikulum-select" class="form-control">
+                    	<option value="" selected="selected" disabled="disabled">Pilih Kurikulum</option>                        
+                    </select><br />
+                    
+                    <label for="angkatan-select">Assign ke Angkatan</label>
+                    <select name="angkatan-select" id="angkatan-select" class="form-control">
+                    	<option value="" selected="selected" disabled="disabled">Pilih angkatan yang ingin diassign</option>                        
+                    </select><br/>
+                </div>
+            </div>
+            <hr />
+            <button type="submit" name="action" value="save" class="btn btn-primary pull-right">Assign</button>
+        </form>
+		
+		<!-- end of content -->
+		
+		<script src="/js/curriculum/assigncurriculum.js" defer="defer"></script>
+	</div>
+</html>

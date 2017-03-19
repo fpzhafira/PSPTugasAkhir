@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+				xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" 
+				th:fragment="master">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<title>Tugas Akhir EAAP - A - Kelompok 3</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/datatables.min.css" />
+	<link rel="stylesheet" href="/css/style.css" />
+	
+	<script src="/js/jquery.min.js" defer="defer"></script>
+	<script src="/js/bootstrap.min.js" defer="defer"></script>
+	<script src="/js/datatables.min.js" defer="defer"></script>
+	<script src="/js/script.js" defer="defer"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+        <div class="container-fluid">            
+            <div class="row">
+            	<a class="text-white" href="#">
+					<div class="col-md-8 col-md-offset-2">
+					    <div class="row padding-12-0">                        
+							<div class="col-md-1">
+							    <img class="logo-ui inline-block" src="/img/logo-ui.png" alt="SIAK-NG"/>                        
+							</div>
+							<div class="col-md-11">                            
+							    <span class="font-24">SIAK-NG UI</span><br/>
+							    <span>Sistem Informasi Akademik Next Generation</span><br/>
+							    <span class="text-yellow">Universitas Indonesia</span>                                                                
+							</div>                                               
+					    </div>    
+					</div>
+                </a>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 padding-top-8 color-secondary">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                        	<div class="collapse navbar-collapse" id="navbar-menu">
+                        		<div sec:authorize="isAuthenticated()" class="nav navbar-nav navbar-left">
+                        			<li class="dropdown">
+	                                	<a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	                                		<span sec:authorize="isAuthenticated()" sec:authentication="name"></span>&nbsp;
+                        					<span sec:authorize="isAuthenticated()" th:text="${(#authentication.principal.authorities[0].toString().equals('student')) ? '(Mahasiswa)' : '(Staf Sekre)'}"></span>
+											<span sec:authorize="isAuthenticated()" class="caret"></span>
+	                                	</a>
+	                                	
+	                                	<ul class="dropdown-menu">
+	                                		<li><a th:href="@{/logout}">Logout</a></li>	                                			                                	
+	                                	</ul>
+	                                </li>                         			
+                        		</div>                        		                        
+	                            <ul sec:authorize="hasAuthority('sekre')" class="nav navbar-nav navbar-right">
+	                                <li class="dropdown">
+	                                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	                                		Mahasiswa <span class="caret"></span>
+	                                	</a>
+	                                	
+	                                	<ul class="dropdown-menu">
+	                                		<li><a th:href="@{/sekre/student/add}">Tambah Mahasiswa</a></li>
+	                                		<li><a th:href="@{/sekre/student/viewall}">Lihat Semua Mahasiswa</a></li>	                                		
+	                                	</ul>
+	                                </li>                                
+	                                <li class="dropdown">
+	                                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	                                		Kurikulum <span class="caret"></span>
+	                                	</a>
+	                                	
+	                                	<ul class="dropdown-menu">
+	                                		<li><a th:href="@{/sekre/3A}">Indeks Kurikulum</a></li>
+	                                		<li><a th:href="@{/sekre/assignCurriculum}">Assign Kurikulum Mahasiswa</a></li>
+	                                			                                			                                	
+	                                	</ul>
+	                                </li>  
+	                                <li class="dropdown">
+	                                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	                                		Enrollment <span class="caret"></span>
+	                                	</a>
+	                                	
+	                                	<ul class="dropdown-menu">
+	                                		<li><a th:href="@{/sekre/3C}">Indeks Enrollment</a></li>
+	                                		
+	                                			                                			                                	
+	                                	</ul>
+	                                </li> 
+	                                                  	                                
+	                            </ul>
+	                            <ul sec:authorize="hasAuthority('student')" class="nav navbar-nav navbar-right">
+	                                <li><a th:href="@{/student/profile}">Lihat Profil</a></li>
+	                                <li><a href="#">Riwayat Mata Kuliah</a></li>                                
+	                                <li class="dropdown">
+	                                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	                                		IRS <span class="caret"></span>
+	                                	</a>	                                	
+	                                	<ul class="dropdown-menu">
+	                                		<li><a href="#">Isi/Ubah IRS</a></li>
+	                                		<li><a href="#">Lihat IRS</a></li>
+	                                	</ul>
+	                                </li>	                                
+	                            </ul>	   
+	                                                     
+	                            <ul th:if="${not #authorization.expression('hasAuthority(''sekre'')') and not #authorization.expression('hasAuthority(''student'')')}" class="nav navbar-nav navbar-right">
+	                            	<li><a th:href="@{/login}">Login</a></li>
+	                            </ul>
+                            </div>                                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+	
+	<div class="container-fluid">
+		<div class="row">			
+			<!-- The Content goes here! -->
+			<div th:replace="this :: content"></div>						
+		</div>
+	</div>
+	
+	<footer class="text-center text-primary">
+        <span class="text-bold">EAAP - Tugas Akhir - A - 3</span>
+    </footer>		
+</body>
+</html>

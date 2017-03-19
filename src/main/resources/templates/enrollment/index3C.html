@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+	
+<head>
+	<title>Curriculum Index</title>
+</head>
+
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+	<div>
+		<div class="col-sm-4">
+			<h3 th:text="'Welcome to SIAK-NG Enrollment Module'"></h3>
+		</div>
+		<div class="col-sm-6"></div>
+		<div class="col-sm-2">
+			<a class="text-warning" th:href="'/sekre/classes/viewAllClass'">
+				<button type="button" class="btn btn-warning">View All Class</button>
+			</a>
+
+			<a class="text-warning" th:href="'/sekre/classes/add/'">
+				<button type="button" class="btn btn-warning">Add Class</button>
+			</a>			
+			
+			<a class="text-warning" th:href="'/sekre/lecturer/set'">
+				<button type="button" class="btn btn-warning">Set Lecturer</button>
+			</a>
+			
+			<a class="text-warning" th:href="'/sekre/term/add'">
+				<button type="button" class="btn btn-warning">Add Term</button>
+			</a>
+			
+			<a class="text-warning" th:href="'/sekre/term/viewall'">
+				<button type="button" class="btn btn-warning">View Term</button>
+			</a>	
+					
+			
+			<a class="text-warning" th:href="'/sekre/schedule/viewAll'">
+				<button type="button" class="btn btn-warning">View All Schedule</button>
+			</a>
+			
+		</div>
+	</div>
+	</div>
+</body>
+</html>

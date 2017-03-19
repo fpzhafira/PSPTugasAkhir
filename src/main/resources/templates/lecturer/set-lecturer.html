@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:include="master :: master">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Tugas Akhir EAAP - A - Kelompok 3</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/datatables.min.css" />
+<link rel="stylesheet" href="/css/style.css" />
+
+<script src="/js/jquery.min.js" defer="defer"></script>
+<script src="/js/bootstrap.min.js" defer="defer"></script>
+<script src="datatables.min.js" defer="defer"></script>
+</head>
+<body>
+	<!-- 	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="row">
+				<a class="text-white" href="#">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="row padding-12-0">
+							<div class="col-md-1">
+								<img class="logo-ui inline-block" src="/img/logo-ui.png"
+									alt="SIAK-NG"> </img>
+							</div>
+							<div class="col-md-11">
+								<span class="font-24">SIAK-NG UI</span><br></br> <span>Sistem
+									Informasi Akademik Next Generation</span><br></br> <span
+									class="text-yellow">Universitas Indonesia</span>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 padding-top-8 color-secondary">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="active"><a href="#">Ringkasan <span
+										class="sr-only">(current)</span></a></li>
+								<li><a href="#">Isi IRS</a></li>
+								<li></li>
+								<li><a href="#">Kalender Akademik</a></li>
+								<li></li>
+								<li><a href="#">Jadwal Kuliah</a></li>
+								<li></li>
+								<li><a href="#">Profil</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav> -->
+
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+		<div class="col-sm-4">
+			<div class="row">
+				<h1>Set Lecturer</h1>
+
+				<form class="form-inline" action="/sekre/lecturer/set/submit"
+					method="post">
+					<div class="form-group blu-margin">
+						<label> Select Class: </label><br></br> <select id="class_id" name="class_id"
+							class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<option th:each="classes: ${classes}"
+								th:value="${classes.class_id}" th:text="${classes.class_name}"></option>
+						</select>
+					</div>
+					<br></br><br></br>
+					<div class="form-group blu-margin">
+						<label> Select Lecturer 1: </label><br></br> <select id="nip" name="nip"
+							class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<option th:each="lecturers: ${lecturers}"
+								th:value="${lecturers.nip}" th:text="${lecturers.nama}"></option>
+						</select>
+					</div>
+					<br></br><br></br>
+			  		<div class="form-group blu-margin">
+						<label> Select Lecturer 2: </label><br></br> <select id="nip2" name="nip2"
+							class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<option th:value="none"> -</option>
+							<option th:each="lecturers: ${lecturers}"
+								th:value="${lecturers.nip}" th:text="${lecturers.nama}"></option>
+						</select>
+					</div>
+										<br></br><br></br>
+					<div class="form-group blu-margin">
+						<label> Select Lecturer 3: </label><br></br> <select id="nip3" name="nip3"
+							class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<option th:value="none"> -</option>
+							<option th:each="lecturers: ${lecturers}"
+								th:value="${lecturers.nip}" th:text="${lecturers.nama}"></option>
+						</select>
+					</div>
+					<!-- <div>
+						<label>Lecturer Name:</label> <select id="nip" name="nip">
+							<option id="nip" name="nip"
+								th:each="lecturer, iterationStatus: ${lecturers}"
+								th:value="${lecturer.nip}" th:text="${lecturer.nama}"></option>
+						</select>
+					</div> -->
+					<div>
+						<button class="btn btn-default" type="submit" name="action"
+							value="save">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

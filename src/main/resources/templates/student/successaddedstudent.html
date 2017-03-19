@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+		<!-- Content goes below here -->
+
+		<div class="page-header">
+            <h1>Data Mahasiswa </h1>
+        </div>
+        
+        <!-- The rest of the content belong below here -->
+
+		<h4>Mahasiswa berhasil ditambahkan</h4>
+
+		<!-- <div class="col-md-8">
+			<table class="table table-striped">
+	            <tbody>
+	                <tr>
+	                    <th colspan="4">BIODATA MAHASISWA</th>
+	                </tr>
+	                <tr>
+	                    <td>Nama</td>
+	                    <td>Putri S.</td>
+	                </tr> 
+	                <tr>
+	                    <td>NPM</td>
+	                    <td>1406512345</td>
+	                </tr>
+	                <tr>
+	                    <td>Universitas</td>
+	                    <td>Universitas Indonesia</td>
+	                </tr>
+	                <tr>
+	                    <td>Fakultas</td>
+	                    <td>Fasilkom</td>
+	                </tr>
+	                <tr>
+	                    <td>Prodi</td>
+	                    <td>Sistem Informasi</td>
+	                </tr>
+	                <tr>
+	                    <td>Angkatan</td>
+	                    <td>2014</td>
+	                </tr>
+	                <tr>
+	                    <td>Pembimbing Akademis</td>
+	                    <td>Siti Aminah S.Kom., M.Kom"</td>
+	                </tr>
+	                <tr>
+	                    <td>Kurikulum</td>
+	                    <td>06.00.12.01-2016</td>
+	                </tr>
+	                <tr>
+	                    <td>IPK</td>
+	                    <td>4.00</td>
+	                </tr>
+	            </tbody>
+	        </table> -->
+
+	        <!--  -->
+	        <!-- <a th:href="'/student/updateStudent'">
+	        	<button class="btn btn-primary pull-right">Edit</button><br/>
+	        </a> -->
+	        <!-- <h2>Tambah Mahasiswa</h2><br/> -->
+	        <form th:href="'/student/add'">
+	        	<button type="button" class="btn btn-primary">Tambah Mahasiswa</button><br/>
+	        </form>
+	        <form th:href="'/student'"> <!-- dibikin link ke html viewallstudent -->
+	        	<button type="button" class="btn btn-primary">Daftar Mahasiswa</button>
+	        </form>
+
+	        <!-- <h2>Delete Mahasiswa</h2><br/>
+	        <button class="btn btn-danger pull-left">Delete</button><br/> -->
+	    </div>
+	</div>
+</html>

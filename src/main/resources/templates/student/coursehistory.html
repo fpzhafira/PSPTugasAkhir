@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+		<!-- Content goes below here -->
+		
+		<div class="page-header">
+            <h1>Data Mahasiswa</h1>
+            <h3>Riwayat Akademis</h3>
+        </div>
+        
+        <!-- The rest of the content belong below here -->
+        <ul class="nav nav-tabs">
+			<li role="presentation" ><a href="viewstudent.html">Ringkasan</a></li>
+			<li role="presentation" class="active"><a href="coursehistory.html">Riwayat Akademis</a></li>
+		</ul>
+
+
+		<h4>Putri S. - 1406512345</h4>
+		<h3>Mata Kuliah Lulus</h3>
+
+        	<table id="table" class="table table-bordered table-striped">
+            	<thead>
+            	<tr>
+                	<th width="5%">No.</th>
+                	<th width="15%">Kode MK</th>
+                	<th width="20%">Kurikulum</th>
+                	<th>Mata Kuliah</th>
+                	<th width="8%">SKS</th>
+            	</tr>
+           		</thead>
+        	</table>
+        	<br/>
+        	<h5>Tahun Ajaran 2014/2015 Term 1</h5>
+        	<table class="table table-bordered table-striped">
+        	 	<tbody>	            
+	         		<tr>
+		         		<td width="5%">1</td>
+	                	<td width="15%">CSF1600200</td>
+	                	<td width="20%">01.00.12.01-2012</td>
+	                	<td>Dasar Dasar Pemrograman</td>
+	                	<td width="8%">6</td>
+	         		</tr>
+	         		<tr>
+		         		<td width="5%">2</td>
+	                	<td width="15%">UIST601111</td>
+	                	<td width="20%">01.00.12.01-2012</td>
+	                	<td>Fisika Dasar 1</td>
+	                	<td width="8%">3</td>
+	         		</tr>    		
+	            </tbody>
+        	</table>
+        	
+        	<br/>
+        	<h5>Tahun Ajaran 2014/2015 Term 2</h5>
+        	<table class="table table-bordered table-striped">
+        	 	<tbody>	            
+	         		<tr>
+		         		<td width="5%">1</td>
+	                	<td width="15%">CSI1602600</td>
+	                	<td width="20%">06.00.12.01-2012</td>
+	                	<td>Administrasi Bisnis</td>
+	                	<td width="8%">3</td>
+	         		</tr>
+	         		<tr>
+		         		<td width="5%">2</td>
+	                	<td width="15%">CSF1600103</td>
+	                	<td width="20%">06.00.12.01-2012</td>
+	                	<td>Aljabar Linier</td>
+	                	<td width="8%">3</td>
+	         		</tr>
+	            </tbody>
+        	</table>
+
+        	<form th:href="'/student'"> <!-- dibikin link ke html viewallstudent -->
+	        	<button type="button" class="btn btn-primary">Daftar Mahasiswa</button>
+	        </form>
+			
+		<!-- <table id="table" class="table table-bordered table-striped">
+		    <thead>
+		     	<tr>
+		            <th>No.</th>
+		            <th>Kode MK</th>
+		            <th>Mata Kuliah</th>
+		            <th>SKS</th>
+		        </tr>
+		    </thead>
+
+		    <tbody>
+				<tr th:each="course,iterationStatus: ${course}">
+					<td th:text="'No. ' + ${iterationStatus.count}">1</td>
+					<td th:text="'Kode MK  ' + ${course.id}">Kode MK</td>
+					<td th:text="' Mata Kuliah ' + ${course.name}">Mata Kuliah</td>
+					<td th:text="'SKS ' + ${course.sks}">SKS</td> 
+				</tr>
+			</tbody>
+		</table> -->
+
+	</div>
+</html>

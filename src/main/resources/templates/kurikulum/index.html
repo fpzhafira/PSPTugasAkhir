@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+	
+<head>
+	<title>Curriculum Index</title>
+</head>
+
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+	<div>
+		<div class="col-sm-4">
+			<h3 th:text="'Welcome to SIAK-NG Curriculum Module'"></h3>
+		</div>
+		<div class="col-sm-6"></div>
+		<div class="col-sm-2">
+			<a class="text-warning" th:href="'/sekre/course/create/'">
+				<button type="button" class="btn btn-warning">Create New Course</button>
+			</a>
+
+			<a class="text-warning" th:href="'/sekre/univ/add/'">
+				<button type="button" class="btn btn-warning">Create New University</button>
+			</a>			
+		
+			
+			<a class="text-warning" th:href="'/sekre/univ/viewall/'">
+				<button type="button" class="btn btn-warning">University</button>
+			</a>
+			
+			<a class="text-warning" th:href="'/sekre/term/viewall'">
+				<button type="button" class="btn btn-warning">Term</button>
+			</a>
+			
+			<a class="text-warning" th:href="'/sekre/group/viewoption'">
+				<button type="button" class="btn btn-warning">Group</button>
+			</a>
+			
+			<a class="text-warning" th:href="'/sekre/search/univ/'">
+				<button type="button" class="btn btn-warning">Search University</button>
+			</a>	
+					
+			
+			<a class="text-warning" th:href="'/sekre/search/faculty/'">
+				<button type="button" class="btn btn-warning">Search Faculty</button>
+			</a>
+			
+			
+			<a class="text-warning" th:href="'/sekre/search/major/'">
+				<button type="button" class="btn btn-warning">Search Major</button>
+			</a>
+			
+			
+			<a class="text-warning" th:href="'/sekre/search/course/'">
+				<button type="button" class="btn btn-warning">Search Course</button>
+			</a>	
+		</div>
+	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:include="master :: master">
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+		<!-- Content goes below here -->
+	
+		<div class="page-header">
+			<h1>Profile Mahasiswa</h1>
+		</div>
+	
+		<!-- The rest of the content belong below here -->
+		<ul class="nav nav-tabs">
+			<li role="presentation" class="active"><a href="viewstudent.html">Ringkasan</a></li>
+			<li role="presentation"><a href="coursehistory.html">Riwayat Akademis</a></li>
+		</ul>			
+		<br/>
+		<div class="col-md-8">
+			<div sec:authorize="hasAuthority('sekre')">
+				<a th:href="@{'/sekre/student/update/'+${student.npm}}" class="btn btn-primary">Update Mahasiswa</a>
+				<a th:href="@{'/sekre/student/delete/'+${student.npm}}" class="btn btn-danger">Hapus Mahasiswa</a>
+				<br /><br />
+			</div>
+			
+			<table id="view-student" class="table table-striped">
+	            <tbody>	                
+	                <tr>
+	                    <td>Nama</td>
+	                    <td th:text="${student.name}">Putri S.</td>
+	                </tr> 
+	                <tr>
+	                    <td>NPM</td>
+	                    <td th:text="${student.npm}">1406512345</td>
+	                </tr>
+	                <tr>
+	                    <td>Universitas</td>
+	                    <td th:text="${university.univName}">Universitas Indonesia</td>
+	                </tr>
+	                <tr>
+	                    <td>Fakultas</td>
+	                    <td th:text="${faculty.facultyName}">Fasilkom</td>
+	                </tr>
+	                <tr>
+	                    <td>Prodi</td>
+	                    <td th:text="${major.majorName}">Sistem Informasi</td>
+	                </tr>	                
+	                <tr>
+	                    <td>Angkatan</td>
+	                    <td th:text="${'20'+#strings.substring(student.npm,0,2)}">2014</td>	                    
+	                </tr>	                
+	                <tr>
+	                    <td>Pembimbing Akademis</td>
+	                    <td id="supervisor-name" th:text="${(supervisor!=null) ? supervisor.nip : 'Belum mendapatkan pembimbing akademis'}">Siti Aminah S.Kom., M.Kom"</td>
+	                </tr>
+	                <tr>
+	                    <td>Kurikulum</td>
+	                    <td th:text="${(curriculum!=null) ? curriculum.idCurriculum : 'Belum diassign kurikulum'}">06.00.12.01-2016</td>
+	                </tr>	                
+	                <tr>
+	                    <td>IPK</td>
+	                    <td th:text="${gpa}">4.00</td>
+	                </tr>
+	            </tbody>
+	        </table>	        	        
+	    </div>
+	    <script th:inline="javascript">
+			var supervisorNip = [[${(supervisor!=null)?supervisor.nip:null}]];
+		</script>
+	    <script src="/js/student/viewstudent.js" defer="defer"></script>
+	</div>
+</html>

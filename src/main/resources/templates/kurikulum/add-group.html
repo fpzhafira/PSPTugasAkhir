@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+<title>Add Group</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+		<div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+
+				<h1 class="page-header">Add Group</h1>
+				<form action="/sekre/group/add/submit" method="post" th:object="${major}">
+					
+					<div class="form-group blu-margin">
+						<label> Pick University </label><br></br> <select name="picker"
+							class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<option th:each="univ : ${univs}" th:value="${univ.idUniv}"
+								th:text="${univ.univName}"></option>
+						</select>
+					</div>
+					
+					<div>
+						<label for="groupName"> Group Name </label>
+						<input type="text" name="groupName" th:placeholder="'Group Name'" />
+					</div>
+					<div>
+						<button type="submit" name="action" value="save">Add Group</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

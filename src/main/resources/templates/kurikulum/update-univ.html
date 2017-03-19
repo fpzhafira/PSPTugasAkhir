@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+<title>Update University</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+		<div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+
+				<h1 class="page-header">Update University</h1>
+				<form action="/sekre/univ/update/submit" method="post" th:object="${univ}">
+					<div>
+						<label for="idUniv"> University ID </label>
+						<input type="text" name="idUniv" readonly = "true" th:field="*{idUniv}"/>
+					</div>
+					<div>
+						<label for="initial"> University Initial </label>
+						<input type="text" name="initial" readonly = "true"
+							th:field="*{initial}" />
+					</div>
+					
+					<div>
+						<label for="univName"> University Name </label>
+						<input type="text" readonly = "true" name="univName"
+							th:field="*{univName}" />
+					</div>
+					<div>
+						<label> Pick Accreditation </label><br></br> <select name="accreditation"
+							class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+							data-toggle="dropdown" th:field="*{accreditation}">
+							<option th:value="'A'"	th:text="'A'"></option>
+							<option th:value="'B'"	th:text="'B'"></option>
+							<option th:value="'C'"	th:text="'C'"></option>
+						</select>
+					</div>
+						<div>
+						<label for="address"> University Address </label>
+						<input type="text" name="address"
+							th:field="*{address}" />
+					</div>	
+					<div>
+						<label for="telephoneNumber"> Telephone Number </label>
+						<input type="text" name="telephoneNumber"
+							th:field="*{telephoneNumber}" />
+					</div>	
+					
+					<div>
+						<button type="submit" name="action" value="save">Update
+							University</button>
+					</div>
+				</form>
+
+
+			</div>
+			<div class="col-sm-4"></div>
+
+
+
+		</div>
+	</div>
+</body>
+</html>

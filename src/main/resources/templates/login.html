@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+		<!-- Content goes below here -->
+		
+		<div class="page-header">
+            <h1>Login</h1>
+        </div>
+        
+        <!-- The rest of the content belong below here -->
+        <div class="row">
+        	<div class="col-md-6 col-md-offset-3">
+        		<div class="panel panel-default">        	
+		        	<div class="panel-body">
+		        		<div th:if="${param.error}" class="alert alert-danger text-center" role="alert">
+		       				Username atau password salah
+		       			</div>
+		       			<div th:if="${param.logout}" class="alert alert-info text-center" role="alert">
+		       				Anda telah berhasil logout
+		       			</div>
+		       			<div th:if="${param.logout == null and param.error == null}" class="alert alert-info text-center" role="alert">
+		       				Login menggunakan username dan passwork SIAK Anda
+		       			</div>
+		        		<form th:action="@{/login}" method="POST">
+		        			<label for="username">Username</label><br />
+		        			<input type="text" id="username" class="form-control" name="username" required="required" /><br />
+		        			<label for="password">Password</label><br />
+		        			<input type="password" id="password" class="form-control" name="password" required="required" /><br />
+		        			<hr />
+		        			<input type="submit" class="btn btn-primary pull-right" value="Log in"/>        			
+		        		</form>
+		        	</div>
+		        </div>
+        	</div>
+        </div>        
+		<!-- end of content -->
+	</div>
+</html>

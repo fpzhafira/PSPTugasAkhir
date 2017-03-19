@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+	<title>Add Course</title>
+</head>
+
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+		<div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+				<h1 class="page-header">Add Course</h1>
+				<form action="/sekre/course/create/submit" method="post" th:object="${course}">
+					
+					<div class="form-group blu-margin">
+						<label> Pick University</label><br></br> 
+							<select name="idUniv" class="btn w3-btn w3-hover-red dropdown-toggle" type="button" data-toggle="dropdown">
+								<option th:each="univ : ${univ}" th:value="${univ.initial}" th:text="${univ.univName}"></option>
+							</select>
+					</div>
+					
+					<div>
+						<input type="text" name="courseName" th:placeholder="'Course Name'" />
+					</div>
+										<div>
+						<input type="text" name="sks" th:placeholder="'SKS'" />
+					</div>
+										<div>
+						<input type="text" name="sksRequired" th:placeholder="'SKS Required'" />
+					</div>
+					<div>
+						<button type="submit" name="action" value="save">Create Course</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

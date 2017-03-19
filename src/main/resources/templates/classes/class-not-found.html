@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:include="master :: master">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Tugas Akhir EAAP - A - Kelompok 3</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/datatables.min.css" />
+<link rel="stylesheet" href="/css/style.css" />
+
+<script src="/js/jquery.min.js" defer="defer"></script>
+<script src="/js/bootstrap.min.js" defer="defer"></script>
+<script src="datatables.min.js" defer="defer"></script>
+</head>
+<body>
+
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+		<div class="row">
+
+			<h1>Class Info</h1>
+
+
+			<div align="center">
+
+				<h4
+					th:text="'Maaf, kelas dengan kode ' + ${class_id} + ' tidak ditemukan.'"></h4>
+
+				<a class="text-warning" th:href="'/sekre/classes/viewAllClass'">
+					<button type="button" class="btn btn-warning">View All
+						Class</button>
+				</a>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

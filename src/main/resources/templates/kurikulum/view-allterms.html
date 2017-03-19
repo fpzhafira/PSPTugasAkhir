@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+<title>View All Terms</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+
+		<div>
+			<h2 class="text-center">Terms List</h2>
+			<br> </br>
+			<table id="datatable" class="table display">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Term Year</th>
+						<th>Term Held</th>
+						<th>Option</th>
+					</tr>
+				</thead>
+				<tbody>
+					<div th:each="term,iterationStatus: ${term}">
+						<tr>
+							<td>
+								<p th:text="${term.idTerm}"></p>
+							</td>
+							<td>
+								<p th:text="${term.years}"></p>
+							</td>
+
+							<th:block th:switch="${term.termHeld}">
+								<div th:case="'1'">
+									<td>
+										<p> Odd (Ganjil) </p>
+									</td>
+								</div>
+								<div th:case="'2'">
+									<td>
+										<p> Even (Genap) </p>
+									</td>
+								</div>
+								<div th:case="'3'">
+									<td>
+										<p> Summer (Semester Pendek) </p>
+									</td>
+								</div>
+							</th:block>
+						<td>
+							 <a th:href="'/sekre/term/delete/' + ${term.idTerm}"><button type="button" class="btn btn-primary">Delete</button> </a>	
+						</td>
+						<td>
+							 <a th:href="'/sekre/classes/view/' + ${term.idTerm}"><button type="button" class="btn btn-primary">View Classes</button> </a>	
+						</td>
+						</tr>
+					</div>
+				</tbody>
+			</table>
+		</div>
+		</div>
+</body>
+</html>

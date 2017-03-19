@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+	
+<head>
+	<title>View Curriculum</title>
+</head>
+
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+	<div>
+		<div class="col-sm-4">
+			<h3 th:text="${curriculum.idCurriculum} + ' - ' + ${curriculum.year}"></h3>
+			<h4 th:text="${term.years} + ' - ' + ${term.termHeld}"></h4>
+		</div>
+		<div class="col-sm-6"></div>
+		<div class="col-sm-2">
+			<a class="text-warning" th:href="'/sekre/course/add'">
+				<button type="button" class="btn btn-warning">Add Course</button>
+			</a>
+			
+			<br></br>
+
+			<a class="text-warning" th:href="'/sekre/curriculum/update/' + ${curriculum.idCurriculum}">
+				<button type="button" class="btn btn-warning">Update Curriculum</button>
+			</a>			
+		
+			<br></br>
+			
+			<a class="text-alert" th:href="'/sekre/curriculum/delete/' + ${curriculum.idCurriculum}">
+				<button type="button" class="btn btn-danger">Delete Curriculum</button>
+			</a>
+			
+			<br></br>
+			
+			<a class="text-warning" th:href="'/sekre/curriculum/selectcourse/' + ${curriculum.idCurriculum}">
+				<button type="button" class="btn btn-warning">Select Course On Term</button>
+			</a>			
+		</div>
+	</div>
+	
+	<div class="container">
+		<h2 class="text-center">List of Courses</h2>
+		<br> </br>	
+		<table id="datatable" class="table display">
+			<thead>
+				<tr>
+					<th>ID Course</th>
+					<th>Course Name</th>
+					<th>SKS</th>
+					<th>Obligatory</th>
+					<th>Detail</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div th:each="course,iterationStatus: ${courses}">
+					<tr>
+						<td>
+							<p th:text="${course.idCourse}"></p>
+						</td>
+						<td>
+							<p th:text="${course.courseName}"></p>
+						</td>
+						<td>
+							<p th:text="${course.sks}"></p>
+						</td>
+						<td>
+							<p th:text="${course.sksRequired}"></p>
+						</td>
+						<td>
+							 <a th:href="'/sekre/course/view/'+${course.idCourse}"><button type="button" class="btn btn-primary">See Details</button> </a>	
+						</td>
+					</tr>
+				</div>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</body>
+</html>

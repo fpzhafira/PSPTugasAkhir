@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+	<title>Search Faculty Result</title>
+</head>
+
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+	
+	<div>
+		<h2 class="text-center">Faculties List</h2>
+		<br> </br>	
+		<table id="datatable" class="table display">
+			<thead>
+				<tr>
+				<th>ID</th>
+				<th>Faculty Name</th>
+				<th>Option</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div th:each="faculty, iterationStatus: ${faculties}">
+					<tr>
+						<td>
+							<p th:text="${faculty.idFaculty}"></p>
+						</td>
+						<td>
+							<p th:text="${faculty.facultyName}"></p>
+						</td>
+						<td>
+							 <a th:href="'/sekre/faculty/view/'+${faculty.idFaculty}"><button type="button" class="btn btn-primary">See Details</button> </a>	
+						</td>
+					</tr>
+				</div>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</body>
+</html>

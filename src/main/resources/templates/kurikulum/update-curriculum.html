@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+<title>Update Curriculum</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+		<div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+
+				<h1 class="page-header">Update Curriculum</h1>
+				<form action="/sekre/curriculum/update/submit" method="post" th:object="${curriculum}">
+					<div>
+						<label for="idCurriculum"> Curriculum ID </label>
+						<input type="text" name="idCurriculum" readonly = "true" th:field="*{idCurriculum}" />
+					</div>
+					<div>
+						<label for="year"> Year </label>
+						<input type="text" name="year" th:field="*{year}" />
+					</div>
+					<div>
+						<label for="idMajor"> Major ID </label>
+						<input type="text" name="idMajor" readonly = "true" th:field="*{idMajor}" />
+					</div>		
+					<div>
+						<button type="submit" name="action" value="save">Update</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:include="master :: master">
+
+<head>
+<title>Add Faculty</title>
+
+</head>
+<body>
+	<div th:fragment="content" class="col-md-8 col-md-offset-2">
+
+		<div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+				<h1 class="page-header">Add Faculty</h1>
+				<h2 th:text ="'in ' + ${univ.univName}"> </h2>
+				<form action="/sekre/faculty/add/submit" method="post" th:object="${faculty}">
+					
+					<div>
+						<input type="text" name="idUniv"
+							readonly="true" th:field="${univ.idUniv}" />
+					</div>
+					<div class="form-group blu-margin">
+						<label> Pick Groups </label><br></br> <select name="idGroup"
+							class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<option th:each="group : ${group}" th:value="${group.idGroup}"
+								th:text="${group.groupName}"></option>
+						</select>
+					</div>
+					<div>
+						<input type="text" name="facultyName"
+							th:placeholder="'Faculty Name'" />
+					</div>
+					<div>
+						<label> Pick Accreditation </label><br></br> <select name="accreditation"
+							class="btn w3-btn w3-hover-red dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<option th:value="'A'"	th:text="'A'"></option>
+							<option th:value="'B'"	th:text="'B'"></option>
+							<option th:value="'C'"	th:text="'C'"></option>
+						</select>
+					</div>
+					
+					<div>
+						<input type="number" name="telephoneNumber"
+							th:placeholder="'Telephone Number'"/>
+					</div>
+					
+					<div>
+						<button type="submit" name="action" value="save">Add
+							Faculty</button>
+					</div>
+				</form>
+
+
+			</div>
+
+			<div class="col-sm-4"></div>
+
+
+
+		</div>
+	</div>
+</body>
+</html>

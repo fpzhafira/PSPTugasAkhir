@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:include="master :: master">
+<div th:fragment="content" class="col-md-8 col-md-offset-2">
+	<!-- Content goes below here -->
+
+	<div class="page-header">
+		<h1>Tambah Mahasiswa</h1>
+	</div>
+
+	<!-- The rest of the content belong below here -->
+	<form th:action="@{/sekre/addStudent}" method="POST">
+        <div class="row">
+        	<div class="col-md-6 col-md-offset-3">
+                <label for="name-input">Nama Mahasiswa</label> 
+				<input type="text" th:field="${student.name}" id="name-input" class="form-control" required="required"/><br/>
+				
+				<label for="univ-select">Universitas</label> 
+				<select name="univId" id="univ-select" class="form-control" required="required">
+					<option value="" disabled="disabled" selected="selected">Pilih Universitas</option>
+					<option th:each="univ, iterationStatus: ${universities}" th:value="${univ.idUniv}" th:text="${univ.univName}"></option>
+				</select><br/> 
+				
+				<label for="fakultas-select">Fakultas</label> 
+				<select name="facultyId" id="fakultas-select" class="form-control" required="required">
+					<option value="" disabled="disabled" selected="selected">Pilih Fakultas</option>					
+				</select><br/> 
+				
+				<label for="prodi-select">Prodi</label> 
+				<select name="majorId" id="prodi-select" class="form-control" required="required">
+					<option value="" disabled="disabled" selected="selected">Pilih Program Studi</option>					
+				</select><br/> 
+				
+				<label for="angkatan-select">Angkatan</label>
+				<input type="number" class="form-control" name="npm" th:value="${#dates.year(#dates.createNow())}" th:min="${#dates.year(#dates.createNow())}"/>
+				<br/> 
+				
+				<label for="pa-select">Pembimbing Akademis</label> 
+				<select th:field="${supervisor.nip}" id="pa-select" class="form-control" required="required">
+					<option value="" disabled="disabled" selected="selected">Pilih Pembimbing Akademis</option>					
+				</select><br/>
+            </div>
+        </div>
+        <hr/>
+        <button  type="submit" name="action" value="save"  class="btn btn-primary pull-right">Save</button>        
+    </form>
+	<!-- end of content -->
+	
+	<script src="/js/student/createstudent.js" defer="defer"></script>
+</div>
+</html>
